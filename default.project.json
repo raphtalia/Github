@@ -1,0 +1,15 @@
+{
+  "name": "github-api",
+  "tree": {
+    "$className": "DataModel",
+
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+
+      "Github": {
+        "$path": "src"
+      }
+    }
+
+  }
+}
