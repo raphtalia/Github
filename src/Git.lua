@@ -3,56 +3,56 @@
 
 local Git = {}
 
-function Git.createABlob(owner, repo, body)
-	return Git.Http.POST(("https://api.github.com/repos/%s/%s/git/blobs"):format(owner, repo), nil, body)
+function Git.createABlob(pathParams, queries, body)
+	return Git.Http.POST("repos/%s/%s/git/blobs", pathParams, queries, body)
 end
 
-function Git.getABlob(owner, repo, file_sha)
-	return Git.Http.GET(("https://api.github.com/repos/%s/%s/git/blobs/%s"):format(owner, repo, file_sha))
+function Git.getABlob(pathParams, queries, body)
+	return Git.Http.GET("repos/%s/%s/git/blobs/%s", pathParams, queries, body)
 end
 
 function Git.createACommit()
-	return Git.Http.POST(("https://api.github.com/repos/%s/%s/git/commits"):format())
+	return Git.Http.POST("repos/%s/%s/git/commits", pathParams, queries, body)
 end
 
 function Git.getACommit()
-	return Git.Http.GET(("https://api.github.com/repos/%s/%s/git/commits/%s"):format())
+	return Git.Http.GET("repos/%s/%s/git/commits/%s", pathParams, queries, body)
 end
 
-function Git.listMatchingReferences(owner, repo, ref, parameters)
-	return Git.Http.GET(("https://api.github.com/repos/%s/%s/git/matching-refs/%s"):format(owner, repo, ref), parameters)
+function Git.listMatchingReferences(pathParams, queries, body)
+	return Git.Http.GET("repos/%s/%s/git/matching-refs/%s", pathParams, queries, body)
 end
 
-function Git.getAReference(owner, repo, ref)
-	return Git.Http.GET(("https://api.github.com/repos/%s/%s/git/ref/%s"):format(owner, repo, ref))
+function Git.getAReference(pathParams, queries, body)
+	return Git.Http.GET("repos/%s/%s/git/ref/%s", pathParams, queries, body)
 end
 
-function Git.createAReference(owner, repo, body)
-	return Git.Http.POST(("https://api.github.com/repos/%s/%s/git/refs"):format(owner, repo), nil, body)
+function Git.createAReference(pathParams, queries, body)
+	return Git.Http.POST("repos/%s/%s/git/refs", pathParams, queries, body)
 end
 
-function Git.updateAReference(owner, repo, ref, body)
-	return Git.Http.PATCH(("https://api.github.com/repos/%s/%s/git/refs/%s"):format(owner, repo, ref), nil, body)
+function Git.updateAReference(pathParams, queries, body)
+	return Git.Http.PATCH("repos/%s/%s/git/refs/%s", pathParams, queries, body)
 end
 
-function Git.deleteAReference(owner, repo, ref)
-	return Git.Http.DELETE(("https://api.github.com/repos/%s/%s/git/refs/%s"):format(owner, repo, ref))
+function Git.deleteAReference(pathParams, queries, body)
+	return Git.Http.DELETE("repos/%s/%s/git/refs/%s", pathParams, queries, body)
 end
 
 function Git.createATagObject()
-	return Git.Http.POST(("https://api.github.com/repos/%s/%s/git/tags"):format())
+	return Git.Http.POST("repos/%s/%s/git/tags", pathParams, queries, body)
 end
 
 function Git.getATag()
-	return Git.Http.GET(("https://api.github.com/repos/%s/%s/git/tags/%s"):format())
+	return Git.Http.GET("repos/%s/%s/git/tags/%s", pathParams, queries, body)
 end
 
-function Git.createATree(owner, repo, body)
-	return Git.Http.POST(("https://api.github.com/repos/%s/%s/git/trees"):format(owner, repo), nil, body)
+function Git.createATree(pathParams, queries, body)
+	return Git.Http.POST("repos/%s/%s/git/trees", pathParams, queries, body)
 end
 
-function Git.getATree(owner, repo, tree_sha, parameters)
-	return Git.Http.GET(("https://api.github.com/repos/%s/%s/git/trees/%s"):format(owner, repo, tree_sha), parameters)
+function Git.getATree(pathParams, queries, body)
+	return Git.Http.GET("repos/%s/%s/git/trees/%s", pathParams, queries, body)
 end
 
 return Git

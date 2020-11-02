@@ -2,264 +2,264 @@
 
 local Teams = {}
 
-function Teams.listTeams(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.listTeams(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.createATeam(org, body)
-	return Teams.Http.POST(("https://api.github.com/orgs/%s/teams"):format(org), nil, body)
+function Teams.createATeam(pathParams, queries, body)
+	return Teams.Http.POST("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.getATeamByName(org, team_slug)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams/%s"):format(org, team_slug))
+function Teams.getATeamByName(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams/%s", pathParams, queries, body)
 end
 
-function Teams.updateATeam(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.updateATeam(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.deleteATeam(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.deleteATeam(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.listTeamProjects(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.listTeamProjects(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.checkTeamPermissionsForAProject(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.checkTeamPermissionsForAProject(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.addOrUpdateTeamProjectPermissions(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.addOrUpdateTeamProjectPermissions(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.removeAProjectFromATeam(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.removeAProjectFromATeam(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.listTeamRepositories(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.listTeamRepositories(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.checkTeamPermissionsForARepository(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.checkTeamPermissionsForARepository(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.addOrUpdateTeamRepositoryPermissions(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.addOrUpdateTeamRepositoryPermissions(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.removeARepositoryFromATeam(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.removeARepositoryFromATeam(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.listChildTeams(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.listChildTeams(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.getATeamLegacy(team_id)
-	return Teams.Http.GET(("https://api.github.com/teams/%s"):format(team_id))
+function Teams.getATeamLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s", pathParams, queries, body)
 end
 
-function Teams.updateATeamLegacy(team_id, body)
-	return Teams.Http.PATCH(("https://api.github.com/teams/%s"):format(team_id), nil, body)
+function Teams.updateATeamLegacy(pathParams, queries, body)
+	return Teams.Http.PATCH("teams/%s", pathParams, queries, body)
 end
 
-function Teams.deleteATeamLegacy(team_id)
-	return Teams.Http.DELETE(("https://api.github.com/teams/%s"):format(team_id))
+function Teams.deleteATeamLegacy(pathParams, queries, body)
+	return Teams.Http.DELETE("teams/%s", pathParams, queries, body)
 end
 
-function Teams.listTeamProjectsLegacy(team_id, parameters)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/projects"):format(team_id), parameters)
+function Teams.listTeamProjectsLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/projects", pathParams, queries, body)
 end
 
-function Teams.checkTeamPermissionsForAProjectLegacy(team_id, project_id)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/projects/%s"):format(team_id, project_id))
+function Teams.checkTeamPermissionsForAProjectLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/projects/%s", pathParams, queries, body)
 end
 
-function Teams.addOrUpdateTeamProjectPermissionsLegacy(team_id, project_id, body)
-	return Teams.Http.PUT(("https://api.github.com/teams/%s/projects/%s"):format(team_id, project_id), nil, body)
+function Teams.addOrUpdateTeamProjectPermissionsLegacy(pathParams, queries, body)
+	return Teams.Http.PUT("teams/%s/projects/%s", pathParams, queries, body)
 end
 
-function Teams.removeAProjectFromATeamLegacy(team_id, project_id)
-	return Teams.Http.DELETE(("https://api.github.com/teams/%s/projects/%s"):format(team_id, project_id))
+function Teams.removeAProjectFromATeamLegacy(pathParams, queries, body)
+	return Teams.Http.DELETE("teams/%s/projects/%s", pathParams, queries, body)
 end
 
-function Teams.listTeamRepositoriesLegacy(team_id, parameters)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/repos"):format(team_id), parameters)
+function Teams.listTeamRepositoriesLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/repos", pathParams, queries, body)
 end
 
-function Teams.checkTeamPermissionsForARepositoryLegacy(team_id, owner, repo)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/repos/%s/%s"):format(team_id, owner, repo))
+function Teams.checkTeamPermissionsForARepositoryLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/repos/%s/%s", pathParams, queries, body)
 end
 
-function Teams.addOrUpdateTeamRepositoryPermissionsLegacy(team_id, owner, repo, body)
-	return Teams.Http.PUT(("https://api.github.com/teams/%s/repos/%s/%s"):format(team_id, owner, repo), nil, body)
+function Teams.addOrUpdateTeamRepositoryPermissionsLegacy(pathParams, queries, body)
+	return Teams.Http.PUT("teams/%s/repos/%s/%s", pathParams, queries, body)
 end
 
-function Teams.removeARepositoryFromATeamLegacy(team_id, owner, repo)
-	return Teams.Http.DELETE(("https://api.github.com/teams/%s/repos/%s/%s"):format(team_id, owner, repo))
+function Teams.removeARepositoryFromATeamLegacy(pathParams, queries, body)
+	return Teams.Http.DELETE("teams/%s/repos/%s/%s", pathParams, queries, body)
 end
 
-function Teams.listChildTeamsLegacy(team_id, parameters)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/teams"):format(team_id), parameters)
+function Teams.listChildTeamsLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/teams", pathParams, queries, body)
 end
 
-function Teams.listTeamsForTheAuthenticatedUser(parameters)
-	return Teams.Http.GET(("https://api.github.com/user/teams"):format(), parameters)
+function Teams.listTeamsForTheAuthenticatedUser(pathParams, queries, body)
+	return Teams.Http.GET("user/teams", pathParams, queries, body)
 end
 
-function Teams.listDiscussions(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.listDiscussions(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.createADiscussion(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.createADiscussion(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.getADiscussion(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.getADiscussion(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.updateADiscussion(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.updateADiscussion(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.deleteADiscussion(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.deleteADiscussion(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.listDiscussionsLegacy(team_id, parameters)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/discussions"):format(team_id), parameters)
+function Teams.listDiscussionsLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/discussions", pathParams, queries, body)
 end
 
-function Teams.createADiscussionLegacy(team_id, body)
-	return Teams.Http.POST(("https://api.github.com/teams/%s/discussions"):format(team_id), nil, body)
+function Teams.createADiscussionLegacy(pathParams, queries, body)
+	return Teams.Http.POST("teams/%s/discussions", pathParams, queries, body)
 end
 
-function Teams.getADiscussionLegacy(team_id, discussion_number)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/discussions/%s"):format(team_id, discussion_number))
+function Teams.getADiscussionLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/discussions/%s", pathParams, queries, body)
 end
 
-function Teams.updateADiscussionLegacy(team_id, discussion_number, body)
-	return Teams.Http.PATCH(("https://api.github.com/teams/%s/discussions/%s"):format(team_id, discussion_number), nil, body)
+function Teams.updateADiscussionLegacy(pathParams, queries, body)
+	return Teams.Http.PATCH("teams/%s/discussions/%s", pathParams, queries, body)
 end
 
-function Teams.deleteADiscussionLegacy(team_id, discussion_number)
-	return Teams.Http.DELETE(("https://api.github.com/teams/%s/discussions/%s"):format(team_id, discussion_number))
+function Teams.deleteADiscussionLegacy(pathParams, queries, body)
+	return Teams.Http.DELETE("teams/%s/discussions/%s", pathParams, queries, body)
 end
 
-function Teams.listDiscussionComments(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.listDiscussionComments(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.createADiscussionComment(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.createADiscussionComment(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.getADiscussionComment(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.getADiscussionComment(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.updateADiscussionComment(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.updateADiscussionComment(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.deleteADiscussionComment(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.deleteADiscussionComment(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.listDiscussionCommentsLegacy(team_id, discussion_number, parameters)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/discussions/%s/comments"):format(team_id, discussion_number), parameters)
+function Teams.listDiscussionCommentsLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/discussions/%s/comments", pathParams, queries, body)
 end
 
-function Teams.createADiscussionCommentLegacy(team_id, discussion_number, body)
-	return Teams.Http.POST(("https://api.github.com/teams/%s/discussions/%s/comments"):format(team_id, discussion_number), nil, body)
+function Teams.createADiscussionCommentLegacy(pathParams, queries, body)
+	return Teams.Http.POST("teams/%s/discussions/%s/comments", pathParams, queries, body)
 end
 
-function Teams.getADiscussionCommentLegacy(team_id, discussion_number, comment_number)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/discussions/%s/comments/%s"):format(team_id, discussion_number, comment_number))
+function Teams.getADiscussionCommentLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/discussions/%s/comments/%s", pathParams, queries, body)
 end
 
-function Teams.updateADiscussionCommentLegacy(team_id, discussion_number, comment_number, body)
-	return Teams.Http.PATCH(("https://api.github.com/teams/%s/discussions/%s/comments/%s"):format(team_id, discussion_number, comment_number), nil, body)
+function Teams.updateADiscussionCommentLegacy(pathParams, queries, body)
+	return Teams.Http.PATCH("teams/%s/discussions/%s/comments/%s", pathParams, queries, body)
 end
 
-function Teams.deleteADiscussionCommentLegacy(team_id, discussion_number, comment_number)
-	return Teams.Http.DELETE(("https://api.github.com/teams/%s/discussions/%s/comments/%s"):format(team_id, discussion_number, comment_number))
+function Teams.deleteADiscussionCommentLegacy(pathParams, queries, body)
+	return Teams.Http.DELETE("teams/%s/discussions/%s/comments/%s", pathParams, queries, body)
 end
 
-function Teams.listPendingTeamInvitations(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.listPendingTeamInvitations(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.listTeamMembers(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.listTeamMembers(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.getTeamMembershipForAUser(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.getTeamMembershipForAUser(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.addOrUpdateTeamMembershipForAUser(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.addOrUpdateTeamMembershipForAUser(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.removeTeamMembershipForAUser(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.removeTeamMembershipForAUser(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.listPendingTeamInvitationsLegacy(team_id, parameters)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/invitations"):format(team_id), parameters)
+function Teams.listPendingTeamInvitationsLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/invitations", pathParams, queries, body)
 end
 
-function Teams.listTeamMembersLegacy(team_id, parameters)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/members"):format(team_id), parameters)
+function Teams.listTeamMembersLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/members", pathParams, queries, body)
 end
 
-function Teams.getTeamMemberLegacy(team_id, username)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/members/%s"):format(team_id, username))
+function Teams.getTeamMemberLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/members/%s", pathParams, queries, body)
 end
 
-function Teams.addTeamMemberLegacy(team_id, username)
-	return Teams.Http.PUT(("https://api.github.com/teams/%s/members/%s"):format(team_id, username))
+function Teams.addTeamMemberLegacy(pathParams, queries, body)
+	return Teams.Http.PUT("teams/%s/members/%s", pathParams, queries, body)
 end
 
-function Teams.removeTeamMemberLegacy(team_id, username)
-	return Teams.Http.DELETE(("https://api.github.com/teams/%s/members/%s"):format(team_id, username))
+function Teams.removeTeamMemberLegacy(pathParams, queries, body)
+	return Teams.Http.DELETE("teams/%s/members/%s", pathParams, queries, body)
 end
 
-function Teams.getTeamMembershipForAUserLegacy(team_id, username)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/memberships/%s"):format(team_id, username))
+function Teams.getTeamMembershipForAUserLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/memberships/%s", pathParams, queries, body)
 end
 
-function Teams.addOrUpdateTeamMembershipForAUserLegacy(team_id, username, body)
-	return Teams.Http.PUT(("https://api.github.com/teams/%s/memberships/%s"):format(team_id, username), nil, body)
+function Teams.addOrUpdateTeamMembershipForAUserLegacy(pathParams, queries, body)
+	return Teams.Http.PUT("teams/%s/memberships/%s", pathParams, queries, body)
 end
 
-function Teams.removeTeamMembershipForAUserLegacy(team_id, username)
-	return Teams.Http.DELETE(("https://api.github.com/teams/%s/memberships/%s"):format(team_id, username))
+function Teams.removeTeamMembershipForAUserLegacy(pathParams, queries, body)
+	return Teams.Http.DELETE("teams/%s/memberships/%s", pathParams, queries, body)
 end
 
-function Teams.listIdpGroupsForAnOrganization(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/team-sync/groups"):format(org), parameters)
+function Teams.listIdpGroupsForAnOrganization(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/team-sync/groups", pathParams, queries, body)
 end
 
-function Teams.listIdpGroupsForATeam(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.listIdpGroupsForATeam(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.createOrUpdateIdpGroupConnections(org, parameters)
-	return Teams.Http.GET(("https://api.github.com/orgs/%s/teams"):format(org), parameters)
+function Teams.createOrUpdateIdpGroupConnections(pathParams, queries, body)
+	return Teams.Http.GET("orgs/%s/teams", pathParams, queries, body)
 end
 
-function Teams.listIdpGroupsForATeamLegacy(team_id)
-	return Teams.Http.GET(("https://api.github.com/teams/%s/team-sync/group-mappings"):format(team_id))
+function Teams.listIdpGroupsForATeamLegacy(pathParams, queries, body)
+	return Teams.Http.GET("teams/%s/team-sync/group-mappings", pathParams, queries, body)
 end
 
-function Teams.createOrUpdateIdpGroupConnectionsLegacy(team_id, body)
-	return Teams.Http.PATCH(("https://api.github.com/teams/%s/team-sync/group-mappings"):format(team_id), nil, body)
+function Teams.createOrUpdateIdpGroupConnectionsLegacy(pathParams, queries, body)
+	return Teams.Http.PATCH("teams/%s/team-sync/group-mappings", pathParams, queries, body)
 end
 
 return Teams

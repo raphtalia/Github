@@ -2,104 +2,104 @@
 
 local Projects = {}
 
-function Projects.listOrganizationProjects(org, parameters)
-	return Projects.Http.GET(("https://api.github.com/orgs/%s/projects"):format(org), parameters)
+function Projects.listOrganizationProjects(pathParams, queries, body)
+	return Projects.Http.GET("orgs/%s/projects", pathParams, queries, body)
 end
 
-function Projects.createAnOrganizationProject(org, body)
-	return Projects.Http.POST(("https://api.github.com/orgs/%s/projects"):format(org), nil, body)
+function Projects.createAnOrganizationProject(pathParams, queries, body)
+	return Projects.Http.POST("orgs/%s/projects", pathParams, queries, body)
 end
 
-function Projects.getAProject(org, parameters)
-	return Projects.Http.GET(("https://api.github.com/orgs/%s/projects"):format(org), parameters)
+function Projects.getAProject(pathParams, queries, body)
+	return Projects.Http.GET("orgs/%s/projects", pathParams, queries, body)
 end
 
-function Projects.updateAProject(project_id, body)
-	return Projects.Http.PATCH(("https://api.github.com/projects/%s"):format(project_id), nil, body)
+function Projects.updateAProject(pathParams, queries, body)
+	return Projects.Http.PATCH("projects/%s", pathParams, queries, body)
 end
 
-function Projects.deleteAProject(org, parameters)
-	return Projects.Http.GET(("https://api.github.com/orgs/%s/projects"):format(org), parameters)
+function Projects.deleteAProject(pathParams, queries, body)
+	return Projects.Http.GET("orgs/%s/projects", pathParams, queries, body)
 end
 
-function Projects.listRepositoryProjects(owner, repo, parameters)
-	return Projects.Http.GET(("https://api.github.com/repos/%s/%s/projects"):format(owner, repo), parameters)
+function Projects.listRepositoryProjects(pathParams, queries, body)
+	return Projects.Http.GET("repos/%s/%s/projects", pathParams, queries, body)
 end
 
-function Projects.createARepositoryProject(owner, repo, body)
-	return Projects.Http.POST(("https://api.github.com/repos/%s/%s/projects"):format(owner, repo), nil, body)
+function Projects.createARepositoryProject(pathParams, queries, body)
+	return Projects.Http.POST("repos/%s/%s/projects", pathParams, queries, body)
 end
 
-function Projects.createAUserProject(body)
-	return Projects.Http.POST(("https://api.github.com/user/projects"):format(), nil, body)
+function Projects.createAUserProject(pathParams, queries, body)
+	return Projects.Http.POST("user/projects", pathParams, queries, body)
 end
 
-function Projects.listUserProjects(username, parameters)
-	return Projects.Http.GET(("https://api.github.com/users/%s/projects"):format(username), parameters)
+function Projects.listUserProjects(pathParams, queries, body)
+	return Projects.Http.GET("users/%s/projects", pathParams, queries, body)
 end
 
-function Projects.getAProjectCard(card_id)
-	return Projects.Http.GET(("https://api.github.com/projects/columns/cards/%s"):format(card_id))
+function Projects.getAProjectCard(pathParams, queries, body)
+	return Projects.Http.GET("projects/columns/cards/%s", pathParams, queries, body)
 end
 
-function Projects.updateAnExistingProjectCard(card_id, body)
-	return Projects.Http.PATCH(("https://api.github.com/projects/columns/cards/%s"):format(card_id), nil, body)
+function Projects.updateAnExistingProjectCard(pathParams, queries, body)
+	return Projects.Http.PATCH("projects/columns/cards/%s", pathParams, queries, body)
 end
 
-function Projects.deleteAProjectCard(card_id)
-	return Projects.Http.DELETE(("https://api.github.com/projects/columns/cards/%s"):format(card_id))
+function Projects.deleteAProjectCard(pathParams, queries, body)
+	return Projects.Http.DELETE("projects/columns/cards/%s", pathParams, queries, body)
 end
 
-function Projects.moveAProjectCard(card_id, body)
-	return Projects.Http.POST(("https://api.github.com/projects/columns/cards/%s/moves"):format(card_id), nil, body)
+function Projects.moveAProjectCard(pathParams, queries, body)
+	return Projects.Http.POST("projects/columns/cards/%s/moves", pathParams, queries, body)
 end
 
-function Projects.listProjectCards(column_id, parameters)
-	return Projects.Http.GET(("https://api.github.com/projects/columns/%s/cards"):format(column_id), parameters)
+function Projects.listProjectCards(pathParams, queries, body)
+	return Projects.Http.GET("projects/columns/%s/cards", pathParams, queries, body)
 end
 
-function Projects.createAProjectCard(column_id)
-	return Projects.Http.POST(("https://api.github.com/projects/columns/%s/cards"):format(column_id))
+function Projects.createAProjectCard(pathParams, queries, body)
+	return Projects.Http.POST("projects/columns/%s/cards", pathParams, queries, body)
 end
 
-function Projects.listProjectCollaborators(project_id, parameters)
-	return Projects.Http.GET(("https://api.github.com/projects/%s/collaborators"):format(project_id), parameters)
+function Projects.listProjectCollaborators(pathParams, queries, body)
+	return Projects.Http.GET("projects/%s/collaborators", pathParams, queries, body)
 end
 
-function Projects.addProjectCollaborator(project_id, username, body)
-	return Projects.Http.PUT(("https://api.github.com/projects/%s/collaborators/%s"):format(project_id, username), nil, body)
+function Projects.addProjectCollaborator(pathParams, queries, body)
+	return Projects.Http.PUT("projects/%s/collaborators/%s", pathParams, queries, body)
 end
 
-function Projects.removeUserAsACollaborator(project_id, username)
-	return Projects.Http.DELETE(("https://api.github.com/projects/%s/collaborators/%s"):format(project_id, username))
+function Projects.removeUserAsACollaborator(pathParams, queries, body)
+	return Projects.Http.DELETE("projects/%s/collaborators/%s", pathParams, queries, body)
 end
 
-function Projects.getProjectPermissionForAUser(project_id, username)
-	return Projects.Http.GET(("https://api.github.com/projects/%s/collaborators/%s/permission"):format(project_id, username))
+function Projects.getProjectPermissionForAUser(pathParams, queries, body)
+	return Projects.Http.GET("projects/%s/collaborators/%s/permission", pathParams, queries, body)
 end
 
-function Projects.getAProjectColumn(column_id)
-	return Projects.Http.GET(("https://api.github.com/projects/columns/%s"):format(column_id))
+function Projects.getAProjectColumn(pathParams, queries, body)
+	return Projects.Http.GET("projects/columns/%s", pathParams, queries, body)
 end
 
-function Projects.updateAnExistingProjectColumn(column_id, body)
-	return Projects.Http.PATCH(("https://api.github.com/projects/columns/%s"):format(column_id), nil, body)
+function Projects.updateAnExistingProjectColumn(pathParams, queries, body)
+	return Projects.Http.PATCH("projects/columns/%s", pathParams, queries, body)
 end
 
-function Projects.deleteAProjectColumn(column_id)
-	return Projects.Http.DELETE(("https://api.github.com/projects/columns/%s"):format(column_id))
+function Projects.deleteAProjectColumn(pathParams, queries, body)
+	return Projects.Http.DELETE("projects/columns/%s", pathParams, queries, body)
 end
 
-function Projects.moveAProjectColumn(column_id, body)
-	return Projects.Http.POST(("https://api.github.com/projects/columns/%s/moves"):format(column_id), nil, body)
+function Projects.moveAProjectColumn(pathParams, queries, body)
+	return Projects.Http.POST("projects/columns/%s/moves", pathParams, queries, body)
 end
 
-function Projects.listProjectColumns(project_id, parameters)
-	return Projects.Http.GET(("https://api.github.com/projects/%s/columns"):format(project_id), parameters)
+function Projects.listProjectColumns(pathParams, queries, body)
+	return Projects.Http.GET("projects/%s/columns", pathParams, queries, body)
 end
 
-function Projects.createAProjectColumn(project_id, body)
-	return Projects.Http.POST(("https://api.github.com/projects/%s/columns"):format(project_id), nil, body)
+function Projects.createAProjectColumn(pathParams, queries, body)
+	return Projects.Http.POST("projects/%s/columns", pathParams, queries, body)
 end
 
 return Projects

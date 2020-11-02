@@ -3,572 +3,572 @@
 
 local Repositories = {}
 
-function Repositories.listOrganizationRepositories(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.listOrganizationRepositories(pathParams, queries, body)
+	return Repositories.Http.GET("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.createAnOrganizationRepository(org, body)
-	return Repositories.Http.POST(("https://api.github.com/orgs/%s/repos"):format(org), nil, body)
+function Repositories.createAnOrganizationRepository(pathParams, queries, body)
+	return Repositories.Http.POST("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.getARepository(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.getARepository(pathParams, queries, body)
+	return Repositories.Http.GET("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.updateARepository(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.updateARepository(pathParams, queries, body)
+	return Repositories.Http.GET("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.deleteARepository(owner, repo, parameters)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s"):format(owner, repo), parameters)
+function Repositories.deleteARepository(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s", pathParams, queries, body)
 end
 
-function Repositories.enableAutomatedSecurityFixes(owner, repo)
-	return Repositories.Http.PUT(("https://api.github.com/repos/%s/%s/automated-security-fixes"):format(owner, repo))
+function Repositories.enableAutomatedSecurityFixes(pathParams, queries, body)
+	return Repositories.Http.PUT("repos/%s/%s/automated-security-fixes", pathParams, queries, body)
 end
 
-function Repositories.disableAutomatedSecurityFixes(owner, repo)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/automated-security-fixes"):format(owner, repo))
+function Repositories.disableAutomatedSecurityFixes(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/automated-security-fixes", pathParams, queries, body)
 end
 
-function Repositories.listRepositoryContributors(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/contributors"):format(owner, repo), parameters)
+function Repositories.listRepositoryContributors(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/contributors", pathParams, queries, body)
 end
 
-function Repositories.createARepositoryDispatchEvent(owner, repo, body)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/dispatches"):format(owner, repo), nil, body)
+function Repositories.createARepositoryDispatchEvent(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/dispatches", pathParams, queries, body)
 end
 
-function Repositories.listRepositoryLanguages(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/languages"):format(owner, repo))
+function Repositories.listRepositoryLanguages(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/languages", pathParams, queries, body)
 end
 
-function Repositories.listRepositoryTags(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/tags"):format(owner, repo), parameters)
+function Repositories.listRepositoryTags(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/tags", pathParams, queries, body)
 end
 
-function Repositories.listRepositoryTeams(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/teams"):format(owner, repo), parameters)
+function Repositories.listRepositoryTeams(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/teams", pathParams, queries, body)
 end
 
-function Repositories.getAllRepositoryTopics(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/topics"):format(owner, repo))
+function Repositories.getAllRepositoryTopics(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/topics", pathParams, queries, body)
 end
 
-function Repositories.replaceAllRepositoryTopics(owner, repo, body)
-	return Repositories.Http.PUT(("https://api.github.com/repos/%s/%s/topics"):format(owner, repo), nil, body)
+function Repositories.replaceAllRepositoryTopics(pathParams, queries, body)
+	return Repositories.Http.PUT("repos/%s/%s/topics", pathParams, queries, body)
 end
 
-function Repositories.transferARepository(owner, repo, body)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/transfer"):format(owner, repo), nil, body)
+function Repositories.transferARepository(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/transfer", pathParams, queries, body)
 end
 
-function Repositories.checkIfVulnerabilityAlertsAreEnabledForARepository(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/vulnerability-alerts"):format(owner, repo))
+function Repositories.checkIfVulnerabilityAlertsAreEnabledForARepository(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/vulnerability-alerts", pathParams, queries, body)
 end
 
-function Repositories.enableVulnerabilityAlerts(owner, repo)
-	return Repositories.Http.PUT(("https://api.github.com/repos/%s/%s/vulnerability-alerts"):format(owner, repo))
+function Repositories.enableVulnerabilityAlerts(pathParams, queries, body)
+	return Repositories.Http.PUT("repos/%s/%s/vulnerability-alerts", pathParams, queries, body)
 end
 
-function Repositories.disableVulnerabilityAlerts(owner, repo)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/vulnerability-alerts"):format(owner, repo))
+function Repositories.disableVulnerabilityAlerts(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/vulnerability-alerts", pathParams, queries, body)
 end
 
-function Repositories.createARepositoryUsingATemplate(org, body)
-	return Repositories.Http.POST(("https://api.github.com/orgs/%s/repos"):format(org), nil, body)
+function Repositories.createARepositoryUsingATemplate(pathParams, queries, body)
+	return Repositories.Http.POST("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.listPublicRepositories(parameters)
-	return Repositories.Http.GET(("https://api.github.com/repositories"):format(), parameters)
+function Repositories.listPublicRepositories(pathParams, queries, body)
+	return Repositories.Http.GET("repositories", pathParams, queries, body)
 end
 
-function Repositories.listRepositoriesForTheAuthenticatedUser(parameters)
-	return Repositories.Http.GET(("https://api.github.com/user/repos"):format(), parameters)
+function Repositories.listRepositoriesForTheAuthenticatedUser(pathParams, queries, body)
+	return Repositories.Http.GET("user/repos", pathParams, queries, body)
 end
 
-function Repositories.createARepositoryForTheAuthenticatedUser(body)
-	return Repositories.Http.POST(("https://api.github.com/user/repos"):format(), nil, body)
+function Repositories.createARepositoryForTheAuthenticatedUser(pathParams, queries, body)
+	return Repositories.Http.POST("user/repos", pathParams, queries, body)
 end
 
-function Repositories.listRepositoriesForAUser(username, parameters)
-	return Repositories.Http.GET(("https://api.github.com/users/%s/repos"):format(username), parameters)
+function Repositories.listRepositoriesForAUser(pathParams, queries, body)
+	return Repositories.Http.GET("users/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.listBranches(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.listBranches(pathParams, queries, body)
+	return Repositories.Http.GET("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.getABranch(owner, repo, branch)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/branches/%s"):format(owner, repo, branch))
+function Repositories.getABranch(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/branches/%s", pathParams, queries, body)
 end
 
-function Repositories.getBranchProtection(owner, repo, branch)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/branches/%s/protection"):format(owner, repo, branch))
+function Repositories.getBranchProtection(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/branches/%s/protection", pathParams, queries, body)
 end
 
-function Repositories.updateBranchProtection(owner, repo, branch, body)
-	return Repositories.Http.PUT(("https://api.github.com/repos/%s/%s/branches/%s/protection"):format(owner, repo, branch), nil, body)
+function Repositories.updateBranchProtection(pathParams, queries, body)
+	return Repositories.Http.PUT("repos/%s/%s/branches/%s/protection", pathParams, queries, body)
 end
 
-function Repositories.deleteBranchProtection(owner, repo, branch)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/branches/%s/protection"):format(owner, repo, branch))
+function Repositories.deleteBranchProtection(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/branches/%s/protection", pathParams, queries, body)
 end
 
-function Repositories.getAdminBranchProtection(owner, repo, branch)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/branches/%s/protection/enforce_admins"):format(owner, repo, branch))
+function Repositories.getAdminBranchProtection(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/branches/%s/protection/enforce_admins", pathParams, queries, body)
 end
 
-function Repositories.setAdminBranchProtection(owner, repo, branch)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/branches/%s/protection/enforce_admins"):format(owner, repo, branch))
+function Repositories.setAdminBranchProtection(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/branches/%s/protection/enforce_admins", pathParams, queries, body)
 end
 
-function Repositories.deleteAdminBranchProtection(owner, repo, branch)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/branches/%s/protection/enforce_admins"):format(owner, repo, branch))
+function Repositories.deleteAdminBranchProtection(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/branches/%s/protection/enforce_admins", pathParams, queries, body)
 end
 
-function Repositories.getPullRequestReviewProtection(owner, repo, branch)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_pull_request_reviews"):format(owner, repo, branch))
+function Repositories.getPullRequestReviewProtection(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/branches/%s/protection/required_pull_request_reviews", pathParams, queries, body)
 end
 
-function Repositories.updatePullRequestReviewProtection(owner, repo, branch, body)
-	return Repositories.Http.PATCH(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_pull_request_reviews"):format(owner, repo, branch), nil, body)
+function Repositories.updatePullRequestReviewProtection(pathParams, queries, body)
+	return Repositories.Http.PATCH("repos/%s/%s/branches/%s/protection/required_pull_request_reviews", pathParams, queries, body)
 end
 
-function Repositories.deletePullRequestReviewProtection(owner, repo, branch)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_pull_request_reviews"):format(owner, repo, branch))
+function Repositories.deletePullRequestReviewProtection(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/branches/%s/protection/required_pull_request_reviews", pathParams, queries, body)
 end
 
-function Repositories.getCommitSignatureProtection(owner, repo, branch)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_signatures"):format(owner, repo, branch))
+function Repositories.getCommitSignatureProtection(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/branches/%s/protection/required_signatures", pathParams, queries, body)
 end
 
-function Repositories.createCommitSignatureProtection(owner, repo, branch)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_signatures"):format(owner, repo, branch))
+function Repositories.createCommitSignatureProtection(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/branches/%s/protection/required_signatures", pathParams, queries, body)
 end
 
-function Repositories.deleteCommitSignatureProtection(owner, repo, branch)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_signatures"):format(owner, repo, branch))
+function Repositories.deleteCommitSignatureProtection(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/branches/%s/protection/required_signatures", pathParams, queries, body)
 end
 
-function Repositories.getStatusChecksProtection(owner, repo, branch)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_status_checks"):format(owner, repo, branch))
+function Repositories.getStatusChecksProtection(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/branches/%s/protection/required_status_checks", pathParams, queries, body)
 end
 
-function Repositories.updateStatusCheckProtection(owner, repo, branch, body)
-	return Repositories.Http.PATCH(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_status_checks"):format(owner, repo, branch), nil, body)
+function Repositories.updateStatusCheckProtection(pathParams, queries, body)
+	return Repositories.Http.PATCH("repos/%s/%s/branches/%s/protection/required_status_checks", pathParams, queries, body)
 end
 
-function Repositories.removeStatusCheckProtection(owner, repo, branch)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_status_checks"):format(owner, repo, branch))
+function Repositories.removeStatusCheckProtection(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/branches/%s/protection/required_status_checks", pathParams, queries, body)
 end
 
-function Repositories.getAllStatusCheckContexts(owner, repo, branch)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_status_checks/contexts"):format(owner, repo, branch))
+function Repositories.getAllStatusCheckContexts(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/branches/%s/protection/required_status_checks/contexts", pathParams, queries, body)
 end
 
-function Repositories.addStatusCheckContexts(owner, repo, branch)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_status_checks/contexts"):format(owner, repo, branch))
+function Repositories.addStatusCheckContexts(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/branches/%s/protection/required_status_checks/contexts", pathParams, queries, body)
 end
 
-function Repositories.setStatusCheckContexts(owner, repo, branch)
-	return Repositories.Http.PUT(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_status_checks/contexts"):format(owner, repo, branch))
+function Repositories.setStatusCheckContexts(pathParams, queries, body)
+	return Repositories.Http.PUT("repos/%s/%s/branches/%s/protection/required_status_checks/contexts", pathParams, queries, body)
 end
 
-function Repositories.removeStatusCheckContexts(owner, repo, branch)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/branches/%s/protection/required_status_checks/contexts"):format(owner, repo, branch))
+function Repositories.removeStatusCheckContexts(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/branches/%s/protection/required_status_checks/contexts", pathParams, queries, body)
 end
 
-function Repositories.getAccessRestrictions(owner, repo, branch)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions"):format(owner, repo, branch))
+function Repositories.getAccessRestrictions(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/branches/%s/protection/restrictions", pathParams, queries, body)
 end
 
-function Repositories.deleteAccessRestrictions(owner, repo, branch)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions"):format(owner, repo, branch))
+function Repositories.deleteAccessRestrictions(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/branches/%s/protection/restrictions", pathParams, queries, body)
 end
 
-function Repositories.getAppsWithAccessToTheProtectedBranch(owner, repo, branch)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions/apps"):format(owner, repo, branch))
+function Repositories.getAppsWithAccessToTheProtectedBranch(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/branches/%s/protection/restrictions/apps", pathParams, queries, body)
 end
 
 function Repositories.addAppAccessRestrictions()
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions/apps"):format())
+	return Repositories.Http.POST("repos/%s/%s/branches/%s/protection/restrictions/apps", pathParams, queries, body)
 end
 
 function Repositories.setAppAccessRestrictions()
-	return Repositories.Http.PUT(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions/apps"):format())
+	return Repositories.Http.PUT("repos/%s/%s/branches/%s/protection/restrictions/apps", pathParams, queries, body)
 end
 
 function Repositories.removeAppAccessRestrictions()
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions/apps"):format())
+	return Repositories.Http.DELETE("repos/%s/%s/branches/%s/protection/restrictions/apps", pathParams, queries, body)
 end
 
-function Repositories.getTeamsWithAccessToTheProtectedBranch(owner, repo, branch)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions/teams"):format(owner, repo, branch))
+function Repositories.getTeamsWithAccessToTheProtectedBranch(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/branches/%s/protection/restrictions/teams", pathParams, queries, body)
 end
 
 function Repositories.addTeamAccessRestrictions()
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions/teams"):format())
+	return Repositories.Http.POST("repos/%s/%s/branches/%s/protection/restrictions/teams", pathParams, queries, body)
 end
 
 function Repositories.setTeamAccessRestrictions()
-	return Repositories.Http.PUT(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions/teams"):format())
+	return Repositories.Http.PUT("repos/%s/%s/branches/%s/protection/restrictions/teams", pathParams, queries, body)
 end
 
 function Repositories.removeTeamAccessRestrictions()
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions/teams"):format())
+	return Repositories.Http.DELETE("repos/%s/%s/branches/%s/protection/restrictions/teams", pathParams, queries, body)
 end
 
-function Repositories.getUsersWithAccessToTheProtectedBranch(owner, repo, branch)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions/users"):format(owner, repo, branch))
+function Repositories.getUsersWithAccessToTheProtectedBranch(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/branches/%s/protection/restrictions/users", pathParams, queries, body)
 end
 
 function Repositories.addUserAccessRestrictions()
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions/users"):format())
+	return Repositories.Http.POST("repos/%s/%s/branches/%s/protection/restrictions/users", pathParams, queries, body)
 end
 
 function Repositories.setUserAccessRestrictions()
-	return Repositories.Http.PUT(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions/users"):format())
+	return Repositories.Http.PUT("repos/%s/%s/branches/%s/protection/restrictions/users", pathParams, queries, body)
 end
 
 function Repositories.removeUserAccessRestrictions()
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/branches/%s/protection/restrictions/users"):format())
+	return Repositories.Http.DELETE("repos/%s/%s/branches/%s/protection/restrictions/users", pathParams, queries, body)
 end
 
-function Repositories.listRepositoryCollaborators(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/collaborators"):format(owner, repo), parameters)
+function Repositories.listRepositoryCollaborators(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/collaborators", pathParams, queries, body)
 end
 
-function Repositories.checkIfAUserIsARepositoryCollaborator(owner, repo, username)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/collaborators/%s"):format(owner, repo, username))
+function Repositories.checkIfAUserIsARepositoryCollaborator(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/collaborators/%s", pathParams, queries, body)
 end
 
-function Repositories.addARepositoryCollaborator(owner, repo, username, body)
-	return Repositories.Http.PUT(("https://api.github.com/repos/%s/%s/collaborators/%s"):format(owner, repo, username), nil, body)
+function Repositories.addARepositoryCollaborator(pathParams, queries, body)
+	return Repositories.Http.PUT("repos/%s/%s/collaborators/%s", pathParams, queries, body)
 end
 
-function Repositories.removeARepositoryCollaborator(owner, repo, username)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/collaborators/%s"):format(owner, repo, username))
+function Repositories.removeARepositoryCollaborator(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/collaborators/%s", pathParams, queries, body)
 end
 
-function Repositories.getRepositoryPermissionsForAUser(owner, repo, username)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/collaborators/%s/permission"):format(owner, repo, username))
+function Repositories.getRepositoryPermissionsForAUser(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/collaborators/%s/permission", pathParams, queries, body)
 end
 
-function Repositories.listCommitCommentsForARepository(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/comments"):format(owner, repo), parameters)
+function Repositories.listCommitCommentsForARepository(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/comments", pathParams, queries, body)
 end
 
-function Repositories.getACommitComment(owner, repo, comment_id)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/comments/%s"):format(owner, repo, comment_id))
+function Repositories.getACommitComment(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/comments/%s", pathParams, queries, body)
 end
 
-function Repositories.updateACommitComment(owner, repo, comment_id, body)
-	return Repositories.Http.PATCH(("https://api.github.com/repos/%s/%s/comments/%s"):format(owner, repo, comment_id), nil, body)
+function Repositories.updateACommitComment(pathParams, queries, body)
+	return Repositories.Http.PATCH("repos/%s/%s/comments/%s", pathParams, queries, body)
 end
 
-function Repositories.deleteACommitComment(owner, repo, comment_id)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/comments/%s"):format(owner, repo, comment_id))
+function Repositories.deleteACommitComment(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/comments/%s", pathParams, queries, body)
 end
 
-function Repositories.listCommitComments(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.listCommitComments(pathParams, queries, body)
+	return Repositories.Http.GET("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.createACommitComment(owner, repo, commit_sha, body)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/commits/%s/comments"):format(owner, repo, commit_sha), nil, body)
+function Repositories.createACommitComment(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/commits/%s/comments", pathParams, queries, body)
 end
 
 function Repositories.listCommits()
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/commits"):format())
+	return Repositories.Http.GET("repos/%s/%s/commits", pathParams, queries, body)
 end
 
-function Repositories.listBranchesForHeadCommit(owner, repo, commit_sha)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/commits/%s/branches-where-head"):format(owner, repo, commit_sha))
+function Repositories.listBranchesForHeadCommit(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/commits/%s/branches-where-head", pathParams, queries, body)
 end
 
-function Repositories.listPullRequestsAssociatedWithACommit(owner, repo, commit_sha, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/commits/%s/pulls"):format(owner, repo, commit_sha), parameters)
+function Repositories.listPullRequestsAssociatedWithACommit(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/commits/%s/pulls", pathParams, queries, body)
 end
 
-function Repositories.getACommit(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.getACommit(pathParams, queries, body)
+	return Repositories.Http.GET("orgs/%s/repos", pathParams, queries, body)
 end
 
 function Repositories.compareTwoCommits()
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/compare/%s...%s"):format())
+	return Repositories.Http.GET("repos/%s/%s/compare/%s...%s", pathParams, queries, body)
 end
 
-function Repositories.getCommunityProfileMetrics(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/community/profile"):format(owner, repo))
+function Repositories.getCommunityProfileMetrics(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/community/profile", pathParams, queries, body)
 end
 
-function Repositories.getRepositoryContent(owner, repo, path, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/contents/%s"):format(owner, repo, path), parameters)
+function Repositories.getRepositoryContent(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/contents/%s", pathParams, queries, body)
 end
 
-function Repositories.createOrUpdateFileContents(owner, repo, path, body)
-	return Repositories.Http.PUT(("https://api.github.com/repos/%s/%s/contents/%s"):format(owner, repo, path), nil, body)
+function Repositories.createOrUpdateFileContents(pathParams, queries, body)
+	return Repositories.Http.PUT("repos/%s/%s/contents/%s", pathParams, queries, body)
 end
 
-function Repositories.deleteAFile(owner, repo, path, body)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/contents/%s"):format(owner, repo, path), nil, body)
+function Repositories.deleteAFile(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/contents/%s", pathParams, queries, body)
 end
 
-function Repositories.getARepositoryReadme(owner, repo, path, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/contents/%s"):format(owner, repo, path), parameters)
+function Repositories.getARepositoryReadme(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/contents/%s", pathParams, queries, body)
 end
 
-function Repositories.downloadARepositoryArchiveTar(owner, repo, ref)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/tarball/%s"):format(owner, repo, ref))
+function Repositories.downloadARepositoryArchiveTar(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/tarball/%s", pathParams, queries, body)
 end
 
-function Repositories.downloadARepositoryArchiveZip(owner, repo, ref)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/zipball/%s"):format(owner, repo, ref))
+function Repositories.downloadARepositoryArchiveZip(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/zipball/%s", pathParams, queries, body)
 end
 
-function Repositories.listDeployKeys(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/keys"):format(owner, repo), parameters)
+function Repositories.listDeployKeys(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/keys", pathParams, queries, body)
 end
 
-function Repositories.createADeployKey(owner, repo, body)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/keys"):format(owner, repo), nil, body)
+function Repositories.createADeployKey(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/keys", pathParams, queries, body)
 end
 
-function Repositories.getADeployKey(owner, repo, key_id)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/keys/%s"):format(owner, repo, key_id))
+function Repositories.getADeployKey(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/keys/%s", pathParams, queries, body)
 end
 
-function Repositories.deleteADeployKey(owner, repo, key_id)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/keys/%s"):format(owner, repo, key_id))
+function Repositories.deleteADeployKey(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/keys/%s", pathParams, queries, body)
 end
 
-function Repositories.listDeployments(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/deployments"):format(owner, repo), parameters)
+function Repositories.listDeployments(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/deployments", pathParams, queries, body)
 end
 
-function Repositories.createADeployment(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.createADeployment(pathParams, queries, body)
+	return Repositories.Http.GET("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.getADeployment(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.getADeployment(pathParams, queries, body)
+	return Repositories.Http.GET("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.deleteADeployment(owner, repo, deployment_id)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/deployments/%s"):format(owner, repo, deployment_id))
+function Repositories.deleteADeployment(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/deployments/%s", pathParams, queries, body)
 end
 
-function Repositories.listDeploymentStatuses(owner, repo, deployment_id, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/deployments/%s/statuses"):format(owner, repo, deployment_id), parameters)
+function Repositories.listDeploymentStatuses(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/deployments/%s/statuses", pathParams, queries, body)
 end
 
-function Repositories.createADeploymentStatus(owner, repo, deployment_id)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/deployments/%s"):format(owner, repo, deployment_id))
+function Repositories.createADeploymentStatus(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/deployments/%s", pathParams, queries, body)
 end
 
-function Repositories.getADeploymentStatus(owner, repo, deployment_id, status_id)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/deployments/%s/statuses/%s"):format(owner, repo, deployment_id, status_id))
+function Repositories.getADeploymentStatus(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/deployments/%s/statuses/%s", pathParams, queries, body)
 end
 
-function Repositories.listForks(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/forks"):format(owner, repo), parameters)
+function Repositories.listForks(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/forks", pathParams, queries, body)
 end
 
-function Repositories.createAFork(owner, repo, body)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/forks"):format(owner, repo), nil, body)
+function Repositories.createAFork(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/forks", pathParams, queries, body)
 end
 
-function Repositories.listRepositoryInvitations(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.listRepositoryInvitations(pathParams, queries, body)
+	return Repositories.Http.GET("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.updateARepositoryInvitation(owner, repo, invitation_id, body)
-	return Repositories.Http.PATCH(("https://api.github.com/repos/%s/%s/invitations/%s"):format(owner, repo, invitation_id), nil, body)
+function Repositories.updateARepositoryInvitation(pathParams, queries, body)
+	return Repositories.Http.PATCH("repos/%s/%s/invitations/%s", pathParams, queries, body)
 end
 
-function Repositories.deleteARepositoryInvitation(owner, repo, invitation_id)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/invitations/%s"):format(owner, repo, invitation_id))
+function Repositories.deleteARepositoryInvitation(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/invitations/%s", pathParams, queries, body)
 end
 
-function Repositories.listRepositoryInvitationsForTheAuthenticatedUser(parameters)
-	return Repositories.Http.GET(("https://api.github.com/user/repository_invitations"):format(), parameters)
+function Repositories.listRepositoryInvitationsForTheAuthenticatedUser(pathParams, queries, body)
+	return Repositories.Http.GET("user/repository_invitations", pathParams, queries, body)
 end
 
-function Repositories.acceptARepositoryInvitation(invitation_id)
-	return Repositories.Http.PATCH(("https://api.github.com/user/repository_invitations/%s"):format(invitation_id))
+function Repositories.acceptARepositoryInvitation(pathParams, queries, body)
+	return Repositories.Http.PATCH("user/repository_invitations/%s", pathParams, queries, body)
 end
 
-function Repositories.declineARepositoryInvitation(invitation_id)
-	return Repositories.Http.DELETE(("https://api.github.com/user/repository_invitations/%s"):format(invitation_id))
+function Repositories.declineARepositoryInvitation(pathParams, queries, body)
+	return Repositories.Http.DELETE("user/repository_invitations/%s", pathParams, queries, body)
 end
 
-function Repositories.mergeABranch(owner, repo, body)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/merges"):format(owner, repo), nil, body)
+function Repositories.mergeABranch(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/merges", pathParams, queries, body)
 end
 
-function Repositories.getAGithubPagesSite(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/pages"):format(owner, repo))
+function Repositories.getAGithubPagesSite(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/pages", pathParams, queries, body)
 end
 
-function Repositories.createAGithubPagesSite(owner, repo, body)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/pages"):format(owner, repo), nil, body)
+function Repositories.createAGithubPagesSite(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/pages", pathParams, queries, body)
 end
 
-function Repositories.updateInformationAboutAGithubPagesSite(owner, repo, body)
-	return Repositories.Http.PUT(("https://api.github.com/repos/%s/%s/pages"):format(owner, repo), nil, body)
+function Repositories.updateInformationAboutAGithubPagesSite(pathParams, queries, body)
+	return Repositories.Http.PUT("repos/%s/%s/pages", pathParams, queries, body)
 end
 
-function Repositories.deleteAGithubPagesSite(owner, repo)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/pages"):format(owner, repo))
+function Repositories.deleteAGithubPagesSite(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/pages", pathParams, queries, body)
 end
 
-function Repositories.listGithubPagesBuilds(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/pages/builds"):format(owner, repo), parameters)
+function Repositories.listGithubPagesBuilds(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/pages/builds", pathParams, queries, body)
 end
 
-function Repositories.requestAGithubPagesBuild(owner, repo)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/pages/builds"):format(owner, repo))
+function Repositories.requestAGithubPagesBuild(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/pages/builds", pathParams, queries, body)
 end
 
-function Repositories.getLatestPagesBuild(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/pages/builds/latest"):format(owner, repo))
+function Repositories.getLatestPagesBuild(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/pages/builds/latest", pathParams, queries, body)
 end
 
-function Repositories.getGithubPagesBuild(owner, repo, build_id)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/pages/builds/%s"):format(owner, repo, build_id))
+function Repositories.getGithubPagesBuild(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/pages/builds/%s", pathParams, queries, body)
 end
 
-function Repositories.listReleases(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/releases"):format(owner, repo), parameters)
+function Repositories.listReleases(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/releases", pathParams, queries, body)
 end
 
-function Repositories.createARelease(owner, repo, body)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/releases"):format(owner, repo), nil, body)
+function Repositories.createARelease(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/releases", pathParams, queries, body)
 end
 
-function Repositories.getAReleaseAsset(owner, repo, asset_id)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/releases/assets/%s"):format(owner, repo, asset_id))
+function Repositories.getAReleaseAsset(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/releases/assets/%s", pathParams, queries, body)
 end
 
-function Repositories.updateAReleaseAsset(owner, repo, asset_id, body)
-	return Repositories.Http.PATCH(("https://api.github.com/repos/%s/%s/releases/assets/%s"):format(owner, repo, asset_id), nil, body)
+function Repositories.updateAReleaseAsset(pathParams, queries, body)
+	return Repositories.Http.PATCH("repos/%s/%s/releases/assets/%s", pathParams, queries, body)
 end
 
-function Repositories.deleteAReleaseAsset(owner, repo, asset_id)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/releases/assets/%s"):format(owner, repo, asset_id))
+function Repositories.deleteAReleaseAsset(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/releases/assets/%s", pathParams, queries, body)
 end
 
-function Repositories.getTheLatestRelease(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/releases/latest"):format(owner, repo))
+function Repositories.getTheLatestRelease(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/releases/latest", pathParams, queries, body)
 end
 
-function Repositories.getAReleaseByTagName(owner, repo, tag)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/releases/tags/%s"):format(owner, repo, tag))
+function Repositories.getAReleaseByTagName(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/releases/tags/%s", pathParams, queries, body)
 end
 
-function Repositories.getARelease(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.getARelease(pathParams, queries, body)
+	return Repositories.Http.GET("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.updateARelease(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.updateARelease(pathParams, queries, body)
+	return Repositories.Http.GET("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.deleteARelease(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.deleteARelease(pathParams, queries, body)
+	return Repositories.Http.GET("orgs/%s/repos", pathParams, queries, body)
 end
 
-function Repositories.listReleaseAssets(owner, repo, release_id, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/releases/%s/assets"):format(owner, repo, release_id), parameters)
+function Repositories.listReleaseAssets(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/releases/%s/assets", pathParams, queries, body)
 end
 
-function Repositories.uploadAReleaseAsset(owner, repo, release_id, parameters)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/releases/%s/assets"):format(owner, repo, release_id), parameters)
+function Repositories.uploadAReleaseAsset(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/releases/%s/assets", pathParams, queries, body)
 end
 
-function Repositories.getTheWeeklyCommitActivity(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/stats/code_frequency"):format(owner, repo))
+function Repositories.getTheWeeklyCommitActivity(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/stats/code_frequency", pathParams, queries, body)
 end
 
-function Repositories.getTheLastYearOfCommitActivity(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/stats/commit_activity"):format(owner, repo))
+function Repositories.getTheLastYearOfCommitActivity(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/stats/commit_activity", pathParams, queries, body)
 end
 
-function Repositories.getAllContributorCommitActivity(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/stats/contributors"):format(owner, repo))
+function Repositories.getAllContributorCommitActivity(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/stats/contributors", pathParams, queries, body)
 end
 
-function Repositories.getTheWeeklyCommitCount(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/stats/participation"):format(owner, repo))
+function Repositories.getTheWeeklyCommitCount(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/stats/participation", pathParams, queries, body)
 end
 
-function Repositories.getTheHourlyCommitCountForEachDay(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/stats/punch_card"):format(owner, repo))
+function Repositories.getTheHourlyCommitCountForEachDay(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/stats/punch_card", pathParams, queries, body)
 end
 
-function Repositories.getTheCombinedStatusForASpecificReference(owner, repo, ref)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/commits/%s/status"):format(owner, repo, ref))
+function Repositories.getTheCombinedStatusForASpecificReference(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/commits/%s/status", pathParams, queries, body)
 end
 
-function Repositories.listCommitStatusesForAReference(owner, repo, ref, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/commits/%s/statuses"):format(owner, repo, ref), parameters)
+function Repositories.listCommitStatusesForAReference(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/commits/%s/statuses", pathParams, queries, body)
 end
 
-function Repositories.createACommitStatus(owner, repo, sha, body)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/statuses/%s"):format(owner, repo, sha), nil, body)
+function Repositories.createACommitStatus(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/statuses/%s", pathParams, queries, body)
 end
 
-function Repositories.getRepositoryClones(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/traffic/clones"):format(owner, repo), parameters)
+function Repositories.getRepositoryClones(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/traffic/clones", pathParams, queries, body)
 end
 
-function Repositories.getTopReferralPaths(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/traffic/popular/paths"):format(owner, repo))
+function Repositories.getTopReferralPaths(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/traffic/popular/paths", pathParams, queries, body)
 end
 
-function Repositories.getTopReferralSources(owner, repo)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/traffic/popular/referrers"):format(owner, repo))
+function Repositories.getTopReferralSources(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/traffic/popular/referrers", pathParams, queries, body)
 end
 
-function Repositories.getPageViews(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/traffic/views"):format(owner, repo), parameters)
+function Repositories.getPageViews(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/traffic/views", pathParams, queries, body)
 end
 
-function Repositories.listRepositoryWebhooks(owner, repo, parameters)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/hooks"):format(owner, repo), parameters)
+function Repositories.listRepositoryWebhooks(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/hooks", pathParams, queries, body)
 end
 
-function Repositories.createARepositoryWebhook(owner, repo, body)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/hooks"):format(owner, repo), nil, body)
+function Repositories.createARepositoryWebhook(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/hooks", pathParams, queries, body)
 end
 
-function Repositories.getARepositoryWebhook(owner, repo, hook_id)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/hooks/%s"):format(owner, repo, hook_id))
+function Repositories.getARepositoryWebhook(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/hooks/%s", pathParams, queries, body)
 end
 
-function Repositories.updateARepositoryWebhook(owner, repo, hook_id, body)
-	return Repositories.Http.PATCH(("https://api.github.com/repos/%s/%s/hooks/%s"):format(owner, repo, hook_id), nil, body)
+function Repositories.updateARepositoryWebhook(pathParams, queries, body)
+	return Repositories.Http.PATCH("repos/%s/%s/hooks/%s", pathParams, queries, body)
 end
 
-function Repositories.deleteARepositoryWebhook(owner, repo, hook_id)
-	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s/hooks/%s"):format(owner, repo, hook_id))
+function Repositories.deleteARepositoryWebhook(pathParams, queries, body)
+	return Repositories.Http.DELETE("repos/%s/%s/hooks/%s", pathParams, queries, body)
 end
 
-function Repositories.getAWebhookConfigurationForARepository(owner, repo, hook_id)
-	return Repositories.Http.GET(("https://api.github.com/repos/%s/%s/hooks/%s"):format(owner, repo, hook_id))
+function Repositories.getAWebhookConfigurationForARepository(pathParams, queries, body)
+	return Repositories.Http.GET("repos/%s/%s/hooks/%s", pathParams, queries, body)
 end
 
-function Repositories.updateAWebhookConfigurationForARepository(owner, repo, hook_id, body)
-	return Repositories.Http.PATCH(("https://api.github.com/repos/%s/%s/hooks/%s"):format(owner, repo, hook_id), nil, body)
+function Repositories.updateAWebhookConfigurationForARepository(pathParams, queries, body)
+	return Repositories.Http.PATCH("repos/%s/%s/hooks/%s", pathParams, queries, body)
 end
 
-function Repositories.pingARepositoryWebhook(owner, repo, hook_id)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/hooks/%s/pings"):format(owner, repo, hook_id))
+function Repositories.pingARepositoryWebhook(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/hooks/%s/pings", pathParams, queries, body)
 end
 
-function Repositories.testThePushRepositoryWebhook(owner, repo, hook_id)
-	return Repositories.Http.POST(("https://api.github.com/repos/%s/%s/hooks/%s/tests"):format(owner, repo, hook_id))
+function Repositories.testThePushRepositoryWebhook(pathParams, queries, body)
+	return Repositories.Http.POST("repos/%s/%s/hooks/%s/tests", pathParams, queries, body)
 end
 
 return Repositories

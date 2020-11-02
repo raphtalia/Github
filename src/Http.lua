@@ -6,24 +6,37 @@ local Headers = {
     Accepts = "application/vnd.github.v3+json"
 }
 
-function formatParameters(url, parameters)
-    local i = 1
+local function buildUrl(path, pathParams, queries)
+	-- Adds optional path parameters to the URL
+	local _,paramsRequired = path:gsub("%%s", "%%s")
+	local newPathParams = table.create(paramsRequired, "")
+	for i,v in pairs(pathParams) do
+		newPathParams[i] = v
+	end
+	path = path:format(unpack(newPathParams))
+	
+	-- Removes double backslashes from the path
+	repeat
+		path = path:gsub("//", "/")
+	until not path:match("//")
 
-    for name, value in pairs(parameters or {}) do
-        if i == 1 then
-            url += ("?%s=%s"):format(name, tostring(value))
-        else
-            url += ("&%s=%s"):format(name, tostring(value))
-        end
-        i += 1
-    end
+	local url = "https://api.github.com/".. path
+	
+	-- Adds query strings to the end of the URL
+	local i = 1
+	for name, value in pairs(queries or {}) do
+		if i == 1 then
+			url ..= ("?%s=%s"):format(name, tostring(value))
+		else
+			url ..= ("&%s=%s"):format(name, tostring(value))
+		end
+		i += 1
+	end
 
-    return url
+	return url
 end
 
-function requestAsync(method, url, parameters, body)
-    url = formatParameters(url, parameters)
-
+local function requestAsync(method, url, body)
     local attempts = 0
     local response
 
@@ -73,24 +86,24 @@ function Http.setAuthorization(type, credentials)
     end
 end
 
-function Http.GET(url, parameters)
-    return requestAsync("GET", url, parameters)
+function Http.GET(path, pathParams, queries)
+    return requestAsync("GET", buildUrl(path, pathParams, queries))
 end
 
-function Http.POST(url, parameters, body)
-    return requestAsync("POST", url, parameters, body)
+function Http.POST(path, pathParams, queries, body)
+    return requestAsync("POST", buildUrl(path, pathParams, queries), body)
 end
 
-function Http.PUT(url, parameters, body)
-    return requestAsync("PUT", url, parameters, body)
+function Http.PUT(path, pathParams, queries, body)
+    return requestAsync("PUT", buildUrl(path, pathParams, queries), body)
 end
 
-function Http.DELETE(url, parameters, body)
-    return requestAsync("DELETE", url, parameters, body)
+function Http.DELETE(path, pathParams, queries, body)
+    return requestAsync("DELETE", buildUrl(path, pathParams, queries), body)
 end
 
-function Http.PATCH(url, parameters, body)
-    return requestAsync("PATCH", url, parameters, body)
+function Http.PATCH(path, pathParams, queries, body)
+    return requestAsync("PATCH", buildUrl(path, pathParams, queries), body)
 end
 
 return Http

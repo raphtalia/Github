@@ -2,160 +2,160 @@
 
 local Organizations = {}
 
-function Organizations.listOrganizations(parameters)
-	return Organizations.Http.GET(("https://api.github.com/organizations"):format(), parameters)
+function Organizations.listOrganizations(pathParams, queries, body)
+	return Organizations.Http.GET("organizations", pathParams, queries, body)
 end
 
-function Organizations.getAnOrganization(parameters)
-	return Organizations.Http.GET(("https://api.github.com/organizations"):format(), parameters)
+function Organizations.getAnOrganization(pathParams, queries, body)
+	return Organizations.Http.GET("organizations", pathParams, queries, body)
 end
 
-function Organizations.updateAnOrganization(parameters)
-	return Organizations.Http.GET(("https://api.github.com/organizations"):format(), parameters)
+function Organizations.updateAnOrganization(pathParams, queries, body)
+	return Organizations.Http.GET("organizations", pathParams, queries, body)
 end
 
-function Organizations.listSamlSsoAuthorizationsForAnOrganization(org)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/credential-authorizations"):format(org))
+function Organizations.listSamlSsoAuthorizationsForAnOrganization(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/credential-authorizations", pathParams, queries, body)
 end
 
-function Organizations.removeASamlSsoAuthorizationForAnOrganization(org, credential_id)
-	return Organizations.Http.DELETE(("https://api.github.com/orgs/%s/credential-authorizations/%s"):format(org, credential_id))
+function Organizations.removeASamlSsoAuthorizationForAnOrganization(pathParams, queries, body)
+	return Organizations.Http.DELETE("orgs/%s/credential-authorizations/%s", pathParams, queries, body)
 end
 
-function Organizations.listAppInstallationsForAnOrganization(org, parameters)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/installations"):format(org), parameters)
+function Organizations.listAppInstallationsForAnOrganization(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/installations", pathParams, queries, body)
 end
 
-function Organizations.listOrganizationsForTheAuthenticatedUser(parameters)
-	return Organizations.Http.GET(("https://api.github.com/user/orgs"):format(), parameters)
+function Organizations.listOrganizationsForTheAuthenticatedUser(pathParams, queries, body)
+	return Organizations.Http.GET("user/orgs", pathParams, queries, body)
 end
 
-function Organizations.listOrganizationsForAUser(username, parameters)
-	return Organizations.Http.GET(("https://api.github.com/users/%s/orgs"):format(username), parameters)
+function Organizations.listOrganizationsForAUser(pathParams, queries, body)
+	return Organizations.Http.GET("users/%s/orgs", pathParams, queries, body)
 end
 
-function Organizations.listUsersBlockedByAnOrganization(org)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/blocks"):format(org))
+function Organizations.listUsersBlockedByAnOrganization(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/blocks", pathParams, queries, body)
 end
 
-function Organizations.checkIfAUserIsBlockedByAnOrganization(org, username)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/blocks/%s"):format(org, username))
+function Organizations.checkIfAUserIsBlockedByAnOrganization(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/blocks/%s", pathParams, queries, body)
 end
 
-function Organizations.blockAUserFromAnOrganization(parameters)
-	return Organizations.Http.GET(("https://api.github.com/organizations"):format(), parameters)
+function Organizations.blockAUserFromAnOrganization(pathParams, queries, body)
+	return Organizations.Http.GET("organizations", pathParams, queries, body)
 end
 
-function Organizations.unblockAUserFromAnOrganization(org, username)
-	return Organizations.Http.DELETE(("https://api.github.com/orgs/%s/blocks/%s"):format(org, username))
+function Organizations.unblockAUserFromAnOrganization(pathParams, queries, body)
+	return Organizations.Http.DELETE("orgs/%s/blocks/%s", pathParams, queries, body)
 end
 
-function Organizations.listPendingOrganizationInvitations(org, parameters)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/invitations"):format(org), parameters)
+function Organizations.listPendingOrganizationInvitations(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/invitations", pathParams, queries, body)
 end
 
-function Organizations.createAnOrganizationInvitation(org, body)
-	return Organizations.Http.POST(("https://api.github.com/orgs/%s/invitations"):format(org), nil, body)
+function Organizations.createAnOrganizationInvitation(pathParams, queries, body)
+	return Organizations.Http.POST("orgs/%s/invitations", pathParams, queries, body)
 end
 
-function Organizations.listOrganizationInvitationTeams(org, invitation_id, parameters)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/invitations/%s/teams"):format(org, invitation_id), parameters)
+function Organizations.listOrganizationInvitationTeams(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/invitations/%s/teams", pathParams, queries, body)
 end
 
-function Organizations.listOrganizationMembers(parameters)
-	return Organizations.Http.GET(("https://api.github.com/organizations"):format(), parameters)
+function Organizations.listOrganizationMembers(pathParams, queries, body)
+	return Organizations.Http.GET("organizations", pathParams, queries, body)
 end
 
-function Organizations.checkOrganizationMembershipForAUser(org, username)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/members/%s"):format(org, username))
+function Organizations.checkOrganizationMembershipForAUser(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/members/%s", pathParams, queries, body)
 end
 
-function Organizations.removeAnOrganizationMember(org, username)
-	return Organizations.Http.DELETE(("https://api.github.com/orgs/%s/members/%s"):format(org, username))
+function Organizations.removeAnOrganizationMember(pathParams, queries, body)
+	return Organizations.Http.DELETE("orgs/%s/members/%s", pathParams, queries, body)
 end
 
-function Organizations.getOrganizationMembershipForAUser(org, username)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/memberships/%s"):format(org, username))
+function Organizations.getOrganizationMembershipForAUser(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/memberships/%s", pathParams, queries, body)
 end
 
-function Organizations.setOrganizationMembershipForAUser(org, username, body)
-	return Organizations.Http.PUT(("https://api.github.com/orgs/%s/memberships/%s"):format(org, username), nil, body)
+function Organizations.setOrganizationMembershipForAUser(pathParams, queries, body)
+	return Organizations.Http.PUT("orgs/%s/memberships/%s", pathParams, queries, body)
 end
 
-function Organizations.removeOrganizationMembershipForAUser(org, username)
-	return Organizations.Http.DELETE(("https://api.github.com/orgs/%s/memberships/%s"):format(org, username))
+function Organizations.removeOrganizationMembershipForAUser(pathParams, queries, body)
+	return Organizations.Http.DELETE("orgs/%s/memberships/%s", pathParams, queries, body)
 end
 
-function Organizations.listPublicOrganizationMembers(org, parameters)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/public_members"):format(org), parameters)
+function Organizations.listPublicOrganizationMembers(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/public_members", pathParams, queries, body)
 end
 
-function Organizations.checkPublicOrganizationMembershipForAUser(org, username)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/public_members/%s"):format(org, username))
+function Organizations.checkPublicOrganizationMembershipForAUser(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/public_members/%s", pathParams, queries, body)
 end
 
-function Organizations.setPublicOrganizationMembershipForTheAuthenticatedUser(org, username)
-	return Organizations.Http.PUT(("https://api.github.com/orgs/%s/public_members/%s"):format(org, username))
+function Organizations.setPublicOrganizationMembershipForTheAuthenticatedUser(pathParams, queries, body)
+	return Organizations.Http.PUT("orgs/%s/public_members/%s", pathParams, queries, body)
 end
 
-function Organizations.removePublicOrganizationMembershipForTheAuthenticatedUser(org, username)
-	return Organizations.Http.DELETE(("https://api.github.com/orgs/%s/public_members/%s"):format(org, username))
+function Organizations.removePublicOrganizationMembershipForTheAuthenticatedUser(pathParams, queries, body)
+	return Organizations.Http.DELETE("orgs/%s/public_members/%s", pathParams, queries, body)
 end
 
-function Organizations.listOrganizationMembershipsForTheAuthenticatedUser(parameters)
-	return Organizations.Http.GET(("https://api.github.com/user/memberships/orgs"):format(), parameters)
+function Organizations.listOrganizationMembershipsForTheAuthenticatedUser(pathParams, queries, body)
+	return Organizations.Http.GET("user/memberships/orgs", pathParams, queries, body)
 end
 
-function Organizations.getAnOrganizationMembershipForTheAuthenticatedUser(org)
-	return Organizations.Http.GET(("https://api.github.com/user/memberships/orgs/%s"):format(org))
+function Organizations.getAnOrganizationMembershipForTheAuthenticatedUser(pathParams, queries, body)
+	return Organizations.Http.GET("user/memberships/orgs/%s", pathParams, queries, body)
 end
 
-function Organizations.updateAnOrganizationMembershipForTheAuthenticatedUser(org, body)
-	return Organizations.Http.PATCH(("https://api.github.com/user/memberships/orgs/%s"):format(org), nil, body)
+function Organizations.updateAnOrganizationMembershipForTheAuthenticatedUser(pathParams, queries, body)
+	return Organizations.Http.PATCH("user/memberships/orgs/%s", pathParams, queries, body)
 end
 
-function Organizations.listOutsideCollaboratorsForAnOrganization(org, parameters)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/outside_collaborators"):format(org), parameters)
+function Organizations.listOutsideCollaboratorsForAnOrganization(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/outside_collaborators", pathParams, queries, body)
 end
 
-function Organizations.convertAnOrganizationMemberToOutsideCollaborator(org, username)
-	return Organizations.Http.PUT(("https://api.github.com/orgs/%s/outside_collaborators/%s"):format(org, username))
+function Organizations.convertAnOrganizationMemberToOutsideCollaborator(pathParams, queries, body)
+	return Organizations.Http.PUT("orgs/%s/outside_collaborators/%s", pathParams, queries, body)
 end
 
-function Organizations.removeOutsideCollaboratorFromAnOrganization(org, username)
-	return Organizations.Http.DELETE(("https://api.github.com/orgs/%s/outside_collaborators/%s"):format(org, username))
+function Organizations.removeOutsideCollaboratorFromAnOrganization(pathParams, queries, body)
+	return Organizations.Http.DELETE("orgs/%s/outside_collaborators/%s", pathParams, queries, body)
 end
 
-function Organizations.listOrganizationWebhooks(org, parameters)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/hooks"):format(org), parameters)
+function Organizations.listOrganizationWebhooks(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/hooks", pathParams, queries, body)
 end
 
-function Organizations.createAnOrganizationWebhook(org, body)
-	return Organizations.Http.POST(("https://api.github.com/orgs/%s/hooks"):format(org), nil, body)
+function Organizations.createAnOrganizationWebhook(pathParams, queries, body)
+	return Organizations.Http.POST("orgs/%s/hooks", pathParams, queries, body)
 end
 
-function Organizations.getAnOrganizationWebhook(org, hook_id)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/hooks/%s"):format(org, hook_id))
+function Organizations.getAnOrganizationWebhook(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/hooks/%s", pathParams, queries, body)
 end
 
-function Organizations.updateAnOrganizationWebhook(org, hook_id, body)
-	return Organizations.Http.PATCH(("https://api.github.com/orgs/%s/hooks/%s"):format(org, hook_id), nil, body)
+function Organizations.updateAnOrganizationWebhook(pathParams, queries, body)
+	return Organizations.Http.PATCH("orgs/%s/hooks/%s", pathParams, queries, body)
 end
 
-function Organizations.deleteAnOrganizationWebhook(org, hook_id)
-	return Organizations.Http.DELETE(("https://api.github.com/orgs/%s/hooks/%s"):format(org, hook_id))
+function Organizations.deleteAnOrganizationWebhook(pathParams, queries, body)
+	return Organizations.Http.DELETE("orgs/%s/hooks/%s", pathParams, queries, body)
 end
 
-function Organizations.getAWebhookConfigurationForAnOrganization(org, hook_id)
-	return Organizations.Http.GET(("https://api.github.com/orgs/%s/hooks/%s"):format(org, hook_id))
+function Organizations.getAWebhookConfigurationForAnOrganization(pathParams, queries, body)
+	return Organizations.Http.GET("orgs/%s/hooks/%s", pathParams, queries, body)
 end
 
-function Organizations.updateAWebhookConfigurationForAnOrganization(org, hook_id, body)
-	return Organizations.Http.PATCH(("https://api.github.com/orgs/%s/hooks/%s"):format(org, hook_id), nil, body)
+function Organizations.updateAWebhookConfigurationForAnOrganization(pathParams, queries, body)
+	return Organizations.Http.PATCH("orgs/%s/hooks/%s", pathParams, queries, body)
 end
 
-function Organizations.pingAnOrganizationWebhook(org, hook_id)
-	return Organizations.Http.POST(("https://api.github.com/orgs/%s/hooks/%s/pings"):format(org, hook_id))
+function Organizations.pingAnOrganizationWebhook(pathParams, queries, body)
+	return Organizations.Http.POST("orgs/%s/hooks/%s/pings", pathParams, queries, body)
 end
 
 return Organizations

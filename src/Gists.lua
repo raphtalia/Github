@@ -2,88 +2,88 @@
 
 local Gists = {}
 
-function Gists.authentication(parameters)
-	return Gists.Http.GET(("https://api.github.com/gists"):format(), parameters)
+function Gists.authentication(pathParams, queries, body)
+	return Gists.Http.GET("gists", pathParams, queries, body)
 end
 
-function Gists.listGistsForTheAuthenticatedUser(parameters)
-	return Gists.Http.GET(("https://api.github.com/gists"):format(), parameters)
+function Gists.listGistsForTheAuthenticatedUser(pathParams, queries, body)
+	return Gists.Http.GET("gists", pathParams, queries, body)
 end
 
-function Gists.createAGist(parameters)
-	return Gists.Http.GET(("https://api.github.com/gists"):format(), parameters)
+function Gists.createAGist(pathParams, queries, body)
+	return Gists.Http.GET("gists", pathParams, queries, body)
 end
 
-function Gists.listPublicGists(parameters)
-	return Gists.Http.GET(("https://api.github.com/gists/public"):format(), parameters)
+function Gists.listPublicGists(pathParams, queries, body)
+	return Gists.Http.GET("gists/public", pathParams, queries, body)
 end
 
-function Gists.listStarredGists(parameters)
-	return Gists.Http.GET(("https://api.github.com/gists/starred"):format(), parameters)
+function Gists.listStarredGists(pathParams, queries, body)
+	return Gists.Http.GET("gists/starred", pathParams, queries, body)
 end
 
-function Gists.getAGist(parameters)
-	return Gists.Http.GET(("https://api.github.com/gists"):format(), parameters)
+function Gists.getAGist(pathParams, queries, body)
+	return Gists.Http.GET("gists", pathParams, queries, body)
 end
 
-function Gists.updateAGist(parameters)
-	return Gists.Http.GET(("https://api.github.com/gists"):format(), parameters)
+function Gists.updateAGist(pathParams, queries, body)
+	return Gists.Http.GET("gists", pathParams, queries, body)
 end
 
-function Gists.deleteAGist(parameters)
-	return Gists.Http.GET(("https://api.github.com/gists"):format(), parameters)
+function Gists.deleteAGist(pathParams, queries, body)
+	return Gists.Http.GET("gists", pathParams, queries, body)
 end
 
-function Gists.listGistCommits(gist_id, parameters)
-	return Gists.Http.GET(("https://api.github.com/gists/%s/commits"):format(gist_id), parameters)
+function Gists.listGistCommits(pathParams, queries, body)
+	return Gists.Http.GET("gists/%s/commits", pathParams, queries, body)
 end
 
-function Gists.listGistForks(gist_id, parameters)
-	return Gists.Http.GET(("https://api.github.com/gists/%s/forks"):format(gist_id), parameters)
+function Gists.listGistForks(pathParams, queries, body)
+	return Gists.Http.GET("gists/%s/forks", pathParams, queries, body)
 end
 
-function Gists.forkAGist(gist_id)
-	return Gists.Http.POST(("https://api.github.com/gists/%s/forks"):format(gist_id))
+function Gists.forkAGist(pathParams, queries, body)
+	return Gists.Http.POST("gists/%s/forks", pathParams, queries, body)
 end
 
-function Gists.checkIfAGistIsStarred(gist_id)
-	return Gists.Http.GET(("https://api.github.com/gists/%s/star"):format(gist_id))
+function Gists.checkIfAGistIsStarred(pathParams, queries, body)
+	return Gists.Http.GET("gists/%s/star", pathParams, queries, body)
 end
 
-function Gists.starAGist(parameters)
-	return Gists.Http.GET(("https://api.github.com/gists"):format(), parameters)
+function Gists.starAGist(pathParams, queries, body)
+	return Gists.Http.GET("gists", pathParams, queries, body)
 end
 
-function Gists.unstarAGist(gist_id)
-	return Gists.Http.DELETE(("https://api.github.com/gists/%s/star"):format(gist_id))
+function Gists.unstarAGist(pathParams, queries, body)
+	return Gists.Http.DELETE("gists/%s/star", pathParams, queries, body)
 end
 
-function Gists.getAGistRevision(gist_id, sha)
-	return Gists.Http.GET(("https://api.github.com/gists/%s/%s"):format(gist_id, sha))
+function Gists.getAGistRevision(pathParams, queries, body)
+	return Gists.Http.GET("gists/%s/%s", pathParams, queries, body)
 end
 
-function Gists.listGistsForAUser(username, parameters)
-	return Gists.Http.GET(("https://api.github.com/users/%s/gists"):format(username), parameters)
+function Gists.listGistsForAUser(pathParams, queries, body)
+	return Gists.Http.GET("users/%s/gists", pathParams, queries, body)
 end
 
-function Gists.listGistComments(gist_id, parameters)
-	return Gists.Http.GET(("https://api.github.com/gists/%s/comments"):format(gist_id), parameters)
+function Gists.listGistComments(pathParams, queries, body)
+	return Gists.Http.GET("gists/%s/comments", pathParams, queries, body)
 end
 
-function Gists.createAGistComment(gist_id, body)
-	return Gists.Http.POST(("https://api.github.com/gists/%s/comments"):format(gist_id), nil, body)
+function Gists.createAGistComment(pathParams, queries, body)
+	return Gists.Http.POST("gists/%s/comments", pathParams, queries, body)
 end
 
-function Gists.getAGistComment(gist_id, comment_id)
-	return Gists.Http.GET(("https://api.github.com/gists/%s/comments/%s"):format(gist_id, comment_id))
+function Gists.getAGistComment(pathParams, queries, body)
+	return Gists.Http.GET("gists/%s/comments/%s", pathParams, queries, body)
 end
 
-function Gists.updateAGistComment(gist_id, comment_id, body)
-	return Gists.Http.PATCH(("https://api.github.com/gists/%s/comments/%s"):format(gist_id, comment_id), nil, body)
+function Gists.updateAGistComment(pathParams, queries, body)
+	return Gists.Http.PATCH("gists/%s/comments/%s", pathParams, queries, body)
 end
 
-function Gists.deleteAGistComment(gist_id, comment_id)
-	return Gists.Http.DELETE(("https://api.github.com/gists/%s/comments/%s"):format(gist_id, comment_id))
+function Gists.deleteAGistComment(pathParams, queries, body)
+	return Gists.Http.DELETE("gists/%s/comments/%s", pathParams, queries, body)
 end
 
 return Gists

@@ -2,92 +2,92 @@
 
 local Migrations = {}
 
-function Migrations.listOrganizationMigrations(org, parameters)
-	return Migrations.Http.GET(("https://api.github.com/orgs/%s/migrations"):format(org), parameters)
+function Migrations.listOrganizationMigrations(pathParams, queries, body)
+	return Migrations.Http.GET("orgs/%s/migrations", pathParams, queries, body)
 end
 
-function Migrations.startAnOrganizationMigration(org, body)
-	return Migrations.Http.POST(("https://api.github.com/orgs/%s/migrations"):format(org), nil, body)
+function Migrations.startAnOrganizationMigration(pathParams, queries, body)
+	return Migrations.Http.POST("orgs/%s/migrations", pathParams, queries, body)
 end
 
-function Migrations.getAnOrganizationMigrationStatus(org, migration_id)
-	return Migrations.Http.GET(("https://api.github.com/orgs/%s/migrations/%s"):format(org, migration_id))
+function Migrations.getAnOrganizationMigrationStatus(pathParams, queries, body)
+	return Migrations.Http.GET("orgs/%s/migrations/%s", pathParams, queries, body)
 end
 
-function Migrations.downloadAnOrganizationMigrationArchive(org, migration_id)
-	return Migrations.Http.GET(("https://api.github.com/orgs/%s/migrations/%s/archive"):format(org, migration_id))
+function Migrations.downloadAnOrganizationMigrationArchive(pathParams, queries, body)
+	return Migrations.Http.GET("orgs/%s/migrations/%s/archive", pathParams, queries, body)
 end
 
-function Migrations.deleteAnOrganizationMigrationArchive(org, migration_id)
-	return Migrations.Http.DELETE(("https://api.github.com/orgs/%s/migrations/%s/archive"):format(org, migration_id))
+function Migrations.deleteAnOrganizationMigrationArchive(pathParams, queries, body)
+	return Migrations.Http.DELETE("orgs/%s/migrations/%s/archive", pathParams, queries, body)
 end
 
-function Migrations.unlockAnOrganizationRepository(org, migration_id, repo_name)
-	return Migrations.Http.DELETE(("https://api.github.com/orgs/%s/migrations/%s/repos/%s/lock"):format(org, migration_id, repo_name))
+function Migrations.unlockAnOrganizationRepository(pathParams, queries, body)
+	return Migrations.Http.DELETE("orgs/%s/migrations/%s/repos/%s/lock", pathParams, queries, body)
 end
 
-function Migrations.listRepositoriesInAnOrganizationMigration(org, migration_id, parameters)
-	return Migrations.Http.GET(("https://api.github.com/orgs/%s/migrations/%s/repositories"):format(org, migration_id), parameters)
+function Migrations.listRepositoriesInAnOrganizationMigration(pathParams, queries, body)
+	return Migrations.Http.GET("orgs/%s/migrations/%s/repositories", pathParams, queries, body)
 end
 
-function Migrations.getAnImportStatus(owner, repo)
-	return Migrations.Http.GET(("https://api.github.com/repos/%s/%s/import"):format(owner, repo))
+function Migrations.getAnImportStatus(pathParams, queries, body)
+	return Migrations.Http.GET("repos/%s/%s/import", pathParams, queries, body)
 end
 
-function Migrations.startAnImport(owner, repo)
-	return Migrations.Http.GET(("https://api.github.com/repos/%s/%s/import"):format(owner, repo))
+function Migrations.startAnImport(pathParams, queries, body)
+	return Migrations.Http.GET("repos/%s/%s/import", pathParams, queries, body)
 end
 
-function Migrations.updateAnImport(owner, repo)
-	return Migrations.Http.GET(("https://api.github.com/repos/%s/%s/import"):format(owner, repo))
+function Migrations.updateAnImport(pathParams, queries, body)
+	return Migrations.Http.GET("repos/%s/%s/import", pathParams, queries, body)
 end
 
-function Migrations.cancelAnImport(owner, repo)
-	return Migrations.Http.GET(("https://api.github.com/repos/%s/%s/import"):format(owner, repo))
+function Migrations.cancelAnImport(pathParams, queries, body)
+	return Migrations.Http.GET("repos/%s/%s/import", pathParams, queries, body)
 end
 
-function Migrations.getCommitAuthors(owner, repo, parameters)
-	return Migrations.Http.GET(("https://api.github.com/repos/%s/%s/import/authors"):format(owner, repo), parameters)
+function Migrations.getCommitAuthors(pathParams, queries, body)
+	return Migrations.Http.GET("repos/%s/%s/import/authors", pathParams, queries, body)
 end
 
-function Migrations.mapACommitAuthor(owner, repo, parameters)
-	return Migrations.Http.GET(("https://api.github.com/repos/%s/%s/import/authors"):format(owner, repo), parameters)
+function Migrations.mapACommitAuthor(pathParams, queries, body)
+	return Migrations.Http.GET("repos/%s/%s/import/authors", pathParams, queries, body)
 end
 
-function Migrations.getLargeFiles(owner, repo)
-	return Migrations.Http.GET(("https://api.github.com/repos/%s/%s/import/large_files"):format(owner, repo))
+function Migrations.getLargeFiles(pathParams, queries, body)
+	return Migrations.Http.GET("repos/%s/%s/import/large_files", pathParams, queries, body)
 end
 
-function Migrations.updateGitLfsPreference(owner, repo, body)
-	return Migrations.Http.PATCH(("https://api.github.com/repos/%s/%s/import/lfs"):format(owner, repo), nil, body)
+function Migrations.updateGitLfsPreference(pathParams, queries, body)
+	return Migrations.Http.PATCH("repos/%s/%s/import/lfs", pathParams, queries, body)
 end
 
-function Migrations.listUserMigrations(parameters)
-	return Migrations.Http.GET(("https://api.github.com/user/migrations"):format(), parameters)
+function Migrations.listUserMigrations(pathParams, queries, body)
+	return Migrations.Http.GET("user/migrations", pathParams, queries, body)
 end
 
-function Migrations.startAUserMigration(body)
-	return Migrations.Http.POST(("https://api.github.com/user/migrations"):format(), nil, body)
+function Migrations.startAUserMigration(pathParams, queries, body)
+	return Migrations.Http.POST("user/migrations", pathParams, queries, body)
 end
 
-function Migrations.getAUserMigrationStatus(migration_id, parameters)
-	return Migrations.Http.GET(("https://api.github.com/user/migrations/%s"):format(migration_id), parameters)
+function Migrations.getAUserMigrationStatus(pathParams, queries, body)
+	return Migrations.Http.GET("user/migrations/%s", pathParams, queries, body)
 end
 
-function Migrations.downloadAUserMigrationArchive(parameters)
-	return Migrations.Http.GET(("https://api.github.com/user/migrations"):format(), parameters)
+function Migrations.downloadAUserMigrationArchive(pathParams, queries, body)
+	return Migrations.Http.GET("user/migrations", pathParams, queries, body)
 end
 
-function Migrations.deleteAUserMigrationArchive(migration_id)
-	return Migrations.Http.DELETE(("https://api.github.com/user/migrations/%s/archive"):format(migration_id))
+function Migrations.deleteAUserMigrationArchive(pathParams, queries, body)
+	return Migrations.Http.DELETE("user/migrations/%s/archive", pathParams, queries, body)
 end
 
-function Migrations.unlockAUserRepository(migration_id, repo_name)
-	return Migrations.Http.DELETE(("https://api.github.com/user/migrations/%s/repos/%s/lock"):format(migration_id, repo_name))
+function Migrations.unlockAUserRepository(pathParams, queries, body)
+	return Migrations.Http.DELETE("user/migrations/%s/repos/%s/lock", pathParams, queries, body)
 end
 
-function Migrations.listRepositoriesForAUserMigration(migration_id, parameters)
-	return Migrations.Http.GET(("https://api.github.com/user/migrations/%s/repositories"):format(migration_id), parameters)
+function Migrations.listRepositoriesForAUserMigration(pathParams, queries, body)
+	return Migrations.Http.GET("user/migrations/%s/repositories", pathParams, queries, body)
 end
 
 return Migrations
