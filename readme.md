@@ -24,7 +24,6 @@ print(Github.Repositories.getRepositoryContent(
 ))
 
 -- Deletes this file
-
 Github.Repositories.deleteAFile(
   {"raphtalia", "github-lua-api", "readme.md"},
   nil, -- No query parameters
