@@ -44,6 +44,7 @@ local function requestAsync(method, url, body)
         body = HttpService:JSONEncode(body)
     end
 
+    local responseBody
     repeat
         if attempts > 2 then
             break
@@ -56,9 +57,11 @@ local function requestAsync(method, url, body)
             Body = body
         })
 
+        responseBody = HttpService:JSONDecode(response.Body)
+
 		if not response.Success then
 			if response.StatusCode == 403 then
-				error(HttpService:JSONDecode(response.Body).message)
+				error(responseBody.message)
             elseif response.StatusCode == 404 then
                 warn("Check URL or authenication token")
                 break
@@ -70,7 +73,7 @@ local function requestAsync(method, url, body)
         end
     until response.Success
 
-	return response.Body
+	return responseBody
 end
 
 function Http.setAuthorization(type, credentials)
