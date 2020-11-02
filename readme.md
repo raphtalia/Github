@@ -19,7 +19,7 @@ print(Github.Repositories.listRepositoriesForTheAuthenticatedUser())
 print(Github.Repositories.getRepositoryContent(
   {"raphtalia", "github-lua-api"},
   {
-    ref = "master"
+    ref = "main"
   }
 ))
 
