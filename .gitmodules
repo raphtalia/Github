@@ -1,0 +1,3 @@
+[submodule "src/Base64"]
+	path = src/Base64
+	url = https://github.com/Reselim/Base64.lua
