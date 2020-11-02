@@ -1,4 +1,4 @@
--- @Reselism
+-- @Reselim
 -- https://github.com/Reselim/Base64/blob/master/Base64.lua
 
 local FILLER_CHARACTER = 61
