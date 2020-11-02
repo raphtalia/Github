@@ -19,8 +19,8 @@ function Repositories.updateARepository(org, parameters)
 	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
 end
 
-function Repositories.deleteARepository(org, parameters)
-	return Repositories.Http.GET(("https://api.github.com/orgs/%s/repos"):format(org), parameters)
+function Repositories.deleteARepository(owner, repo, parameters)
+	return Repositories.Http.DELETE(("https://api.github.com/repos/%s/%s"):format(owner, repo), parameters)
 end
 
 function Repositories.enableAutomatedSecurityFixes(owner, repo)

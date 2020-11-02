@@ -27,6 +27,10 @@ function requestAsync(method, url, parameters, body)
     local attempts = 0
     local response
 
+    if body then
+        body = HttpService:JSONEncode(body)
+    end
+
     repeat
         if attempts > 2 then
             break
@@ -39,17 +43,21 @@ function requestAsync(method, url, parameters, body)
             Body = body
         })
 
-        if response.StatusCode == 403 then
-            warn("Authenicate for higher rate limit")
-        elseif response.StatusCode == 404 then
-            warn("Check URL or authenication token")
-            break
-        end
+		if not response.Success then
+			if response.StatusCode == 403 then
+				error(HttpService:JSONDecode(response.Body).message)
+            elseif response.StatusCode == 404 then
+                warn("Check URL or authenication token")
+                break
+            end
 
-        attempts += 1
+            attempts += 1
+
+            wait(math.random(2, 5))
+        end
     until response.Success
 
-    return response.Body
+	return response.Body
 end
 
 function Http.setAuthorization(type, credentials)
