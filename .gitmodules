@@ -1,3 +1,6 @@
-[submodule "src/Base64"]
-	path = src/Base64
+[submodule "modules/Base64"]
+	path = modules/Base64
 	url = https://github.com/Reselim/Base64
+[submodule "modules/Promise"]
+	path = modules/Promise
+	url = https://github.com/evaera/roblox-lua-promise

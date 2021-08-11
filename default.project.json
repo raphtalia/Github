@@ -1,15 +1,9 @@
 {
-  "name": "github-api",
+  "name": "Github",
   "tree": {
-    "$className": "DataModel",
+    "$path": "src",
 
-    "ServerScriptService": {
-      "$className": "ServerScriptService",
-
-      "Github": {
-        "$path": "src"
-      }
-    }
-
+    "Base64": { "$path": "modules/Base64" },
+    "Promise": { "$path": "modules/Promise" }
   }
 }

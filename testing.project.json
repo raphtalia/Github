@@ -1,0 +1,14 @@
+{
+    "name": "Github - Testing",
+    "tree": {
+        "$className": "DataModel",
+
+        "ReplicatedStorage": {
+            "$className": "ReplicatedStorage",
+
+            "Github": {
+                "$path": "."
+            }
+        }
+    }
+}
